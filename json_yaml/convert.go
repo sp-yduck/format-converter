@@ -1,4 +1,4 @@
-package main
+package jsonyaml
 
 import (
 	"encoding/json"
@@ -35,10 +35,13 @@ type AnnotationType struct {
 func json_print(file_name string) {
 	text, err := ioutil.ReadFile(file_name)
 	if err != nil {
-		fmt.Println(err.Error())
+		panic(err.Error())
 	}
 	var rule_groups RuleGroups
-	json.Unmarshal(text, &rule_groups)
+	err = json.Unmarshal(text, &rule_groups)
+	if err != nil {
+		panic(err.Error())
+	}
 	fmt.Println(rule_groups)
 }
 
