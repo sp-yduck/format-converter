@@ -32,7 +32,7 @@ type AnnotationType struct {
 	Description string `json:"description"`
 }
 
-func json_print(file_name string) {
+func JsonPrint(file_name string) {
 	text, err := ioutil.ReadFile(file_name)
 	if err != nil {
 		panic(err.Error())
@@ -43,8 +43,4 @@ func json_print(file_name string) {
 		panic(err.Error())
 	}
 	fmt.Println(rule_groups)
-}
-
-func main() {
-	json_print("./json_yaml/alerts.json")
 }
